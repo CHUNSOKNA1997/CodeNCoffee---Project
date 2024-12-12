@@ -18,7 +18,8 @@ coffeeList.forEach((items) => {
               ).toFixed(2)}</p>
               <button
                 type="submit"
-                class="bg-softRed h-[40px] w-[175px] py-4 px-4 text-white text-center rounded-full flex justify-center items-center text-xl hover:bg-transparent hover:outline hover:outline-white hover:text-white transition-all space-x-[10px]"
+                class="js-add-button bg-softRed h-[40px] w-[175px] py-4 px-4 text-white text-center rounded-full flex justify-center items-center text-xl hover:bg-transparent hover:outline hover:outline-white hover:text-white transition-all space-x-[10px]"
+                data-coffee-name="${items.name}"
               >
                 <i class="ri-shopping-cart-fill"></i>
                 <span class="text-lg">Added to Cart</span>
@@ -30,3 +31,22 @@ coffeeList.forEach((items) => {
 });
 
 document.querySelector('.JS-coffee-List-Container').innerHTML = coffeeListHTML;
+
+document.querySelectorAll('.js-add-button').forEach((button) => {
+  button.addEventListener('click', () => {
+    const coffeeName = button.dataset.coffeeName;
+
+    const MatchingItems = cart.find((item) => item.coffeeName === coffeeName);
+
+    if (MatchingItems) {
+      MatchingItems.quantity += 1;
+    } else {
+      cart.push({
+        coffeeName: coffeeName,
+        quantity: 1,
+      });
+    }
+
+    console.log(cart);
+  });
+});
