@@ -1,3 +1,5 @@
+import { cart } from './data/cart.js';
+import { coffeeList } from './data/products.js';
 let coffeeListHTML = '';
 coffeeList.forEach((items) => {
   coffeeListHTML += `
@@ -36,10 +38,10 @@ document.querySelectorAll('.js-add-button').forEach((button) => {
   button.addEventListener('click', () => {
     const coffeeName = button.dataset.coffeeName;
 
-    const MatchingItems = cart.find((item) => item.coffeeName === coffeeName);
+    const matchingItem = cart.find((item) => item.coffeeName === coffeeName);
 
-    if (MatchingItems) {
-      MatchingItems.quantity += 1;
+    if (matchingItem) {
+      matchingItem.quantity += 1;
     } else {
       cart.push({
         coffeeName: coffeeName,
@@ -53,7 +55,5 @@ document.querySelectorAll('.js-add-button').forEach((button) => {
     });
 
     document.querySelector('.js-cart').innerHTML = cartQty;
-
-    console.log(cartQty);
   });
 });

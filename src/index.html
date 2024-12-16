@@ -76,26 +76,6 @@
       .hover-animation:hover::before {
         width: 100%;
       }
-      @media (max-width: 768px) {
-        #nav-menu {
-          display: none; /* Hide the menu by default on small screens */
-          flex-direction: column; /* Stack the menu items vertically */
-          position: absolute; /* Position it absolutely */
-          top: 100px; /* Position below the navbar */
-          left: 0; /* Align to the left */
-          width: 100%; /* Full width */
-          background-color: white; /* Background color */
-          z-index: 10; /* Ensure it appears above other content */
-        }
-
-        #nav-menu.active {
-          display: flex; /* Show the menu when active */
-        }
-
-        #menu-toggle {
-          display: block; /* Show the menu toggle icon */
-        }
-      }
     </style>
   </head>
   <body class="text-white">
@@ -138,11 +118,13 @@
           </li>
         </ul>
         <!-- right-section -->
-        <div class="flex justify-center items-center mr-[50px] relative ">
-          <i
+        <div class="flex justify-center items-center mr-[50px] relative max-w-[220px] max-md:min-w-[20px]">
+          <a href="./checkout.html" class="absolute">
+            <i
             class="ri-shopping-cart-line text-4xl max-xl:text-3xl absolute right-[40px] hover:scale-125 hover:cursor-pointer transition-transform duration-300"
           ></i>
           <span class="js-cart text-3xl max-xl:text-2xl text-black font-bold">0</span>
+          </a>
         </div>
       </nav>
       <!-- End of navigation -->
@@ -245,90 +227,76 @@
       </div>
 
       <div
-        class="grid grid-cols-4 items-baseline mx-[37px] mt-[30px] h-[250px] xl:grid-cols-4 lg:grid-cols-3 md:gid-cols-2 sm:grid-cols-1"
+      class="grid items-baseline mx-[37px] mt-[30px] mb-[50px] max-[781px]:grid-cols-1 space-y-[50px] sm:grid-cols-2 lg:grid-cols-4"
+    >
+      <div
+        class="w-[400px] flex flex-col space-y-[20px]"
       >
-        <div
-          class="w-[400px] flex flex-col space-y-[20px]"
-          data-aos="fade-down"
-          data-aos-duration="1500"
-        >
-          <p class="text-4xl font-semibold">
-            <span class="text-green-600">Coffee</span>NCode
-          </p>
-          <p class="text-lg">
-            "Thank you for supporting
-            <span class="text-green-600">CoffeeNCode</span> where passion for
-            programming meets the perfect brew!"
-          </p>
-          <div class="flex space-x-[17px] text-4xl">
-            <i class="ri-facebook-fill hover-socialMedia"></i>
-            <i class="ri-instagram-fill hover-socialMedia"></i>
-            <i class="ri-tiktok-fill hover-socialMedia"></i>
-            <i class="ri-youtube-fill hover-socialMedia"></i>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col space-y-[17px]"
-          data-aos="fade-down"
-          data-aos-duration="1700"
-        >
-          <p class="text-4xl font-semibold">Support</p>
-          <ul class="flex flex-col space-y-[12px]">
-            <a href="#" class="text-lg hover:text-green-600">Product</a>
-            <a href="#" class="text-lg hover:text-green-600"
-              >Help and Support</a
-            >
-            <a href="#" class="text-lg hover:text-green-600">Return Policy</a>
-            <a href="#" class="text-lg hover:text-green-600">Terms of Use</a>
-          </ul>
-        </div>
-
-        <div
-          class="flex flex-col space-y-[17px]"
-          data-aos="fade-down"
-          data-aos-duration="1900"
-        >
-          <p class="text-4xl font-semibold">
-            <span class="text-green-600">View</span> Guides
-          </p>
-          <ul class="flex flex-col space-y-[12px]">
-            <a href="#" class="text-lg hover:text-green-600">Features</a>
-            <a href="#" class="text-lg hover:text-green-600">Careers</a>
-            <a href="#" class="text-lg hover:text-green-600">Blog Posts</a>
-            <a href="#" class="text-lg hover:text-green-600">Our Branches</a>
-          </ul>
-        </div>
-
-        <div
-          class="flex flex-col space-y-[17px]"
-          data-aos="fade-down"
-          data-aos-duration="2100"
-        >
-          <p class="text-4xl font-semibold">
-            <span class="text-green-600">Personal</span> information
-          </p>
-          <div class="flex space-x-[10px]">
-            <i class="ri-map-pin-2-fill text-2xl"></i>
-            <span class="text-lg"
-              >St 288, Sangkat Boeng Keng Kang Ti 2, Khan Kang, Phnom Penh,
-              Cambodia</span
-            >
-          </div>
-          <div class="flex space-x-[10px]">
-            <i class="ri-phone-line text-2xl"></i>
-            <span class="text-lg">(+855) 97 331 0265</span>
-          </div>
-          <div class="flex space-x-[10px]">
-            <i class="ri-mail-fill text-2xl"></i>
-            <span class="text-lg">chun.sokna.1997@gmail.com</span>
-          </div>
+        <p class="text-3xl font-semibold">
+          <span class="text-green-600">Coffee</span>NCode
+        </p>
+        <p class="text-base">
+          "Thank you for supporting
+          <span class="text-green-600">CoffeeNCode</span> <br> where passion for
+          programming meets the <br> perfect brew!"
+        </p>
+        <div class="flex space-x-[17px] text-4xl">
+          <i class="ri-facebook-fill hover-socialMedia"></i>
+          <i class="ri-instagram-fill hover-socialMedia"></i>
+          <i class="ri-tiktok-fill hover-socialMedia"></i>
+          <i class="ri-youtube-fill hover-socialMedia"></i>
         </div>
       </div>
-    </section>
+
+      <div
+        class="flex flex-col space-y-[17px]"
+      >
+        <p class="text-3xl font-semibold">Support</p>
+        <ul class="flex flex-col space-y-[12px]">
+          <a href="#" class="text-lg hover:text-green-600">Product</a>
+          <a href="#" class="text-lg hover:text-green-600">Help and Support</a>
+          <a href="#" class="text-lg hover:text-green-600">Return Policy</a>
+          <a href="#" class="text-lg hover:text-green-600">Terms of Use</a>
+        </ul>
+      </div>
+
+      <div
+        class="flex flex-col space-y-[17px]"
+      >
+        <p class="text-4xl font-semibold">
+          <span class="text-green-600">View</span> Guides
+        </p>
+        <ul class="flex flex-col space-y-[12px]">
+          <a href="#" class="text-lg hover:text-green-600">Features</a>
+          <a href="#" class="text-lg hover:text-green-600">Careers</a>
+          <a href="#" class="text-lg hover:text-green-600">Blog Posts</a>
+          <a href="#" class="text-lg hover:text-green-600">Our Branches</a>
+        </ul>
+      </div>
+
+      <div
+        class="flex flex-col space-y-[17px]"
+      >
+        <p class="text-4xl font-semibold">
+          <span class="text-green-600">Personal</span> information
+        </p>
+        <div class="flex space-x-[10px]">
+          <i class="ri-map-pin-2-fill text-2xl"></i>
+          <span class="text-lg">St 288, Sangkat Boeng Keng Kang Ti 2, Khan Kang, Phnom Penh, Cambodia</span>
+        </div>
+        <div class="flex space-x-[10px]">
+          <i class="ri-phone-line text-2xl"></i>
+          <span class="text-lg">(+855) 97 331 0265</span>
+        </div>
+        <div class="flex space-x-[10px]">
+          <i class="ri-mail-fill text-2xl"></i>
+          <span class="text-lg">chun.sokna.1997@gmail.com</span>
+        </div>
+      </div>
+    </div>
 
     <footer
-      class="bg-lightGray w-sreen h-[100px] shadow-md shadow-white flex justify-center items-center border-t-2 border-white"
+      class="bg-lightGray w-screen h-[100px] shadow-md shadow-white flex justify-center items-center border-t-2 border-white"
     >
       <p class="text-lg">
         © 2024 CoffeeNCode, Brewing software skills one cup at a time. All right
@@ -336,13 +304,10 @@
         <span class="text-green-600">"Nxa"</span>.
       </p>
     </footer>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
-    </script>
-    <script src="./cart-added.js"></script>
-    <script src="./coffee.js"></script>
-    <script src="./coffee-shop.js"></script>
+    </script>    
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
