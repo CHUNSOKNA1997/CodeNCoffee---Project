@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,9 +12,6 @@
     <link rel="stylesheet" href="output.css" />
     <title>CoffeeNCode</title>
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
       .animated-img {
         animation: float 4s linear infinite;
       }
@@ -39,158 +36,171 @@
           transform: translateY(-2rem);
         }
       }
-      .bg-coffee {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 1),
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 1)
-          ),
-          url(./images/coffee-bg.jpg);
-      }
-      .bg-coffee-about {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 1),
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 1)
-          ),
-          url(./images/bg-coffee-about.jpg);
-      }
-      .bg-coffee-menu {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 1),
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 1)
-          ),
-          url(./images/bg-menu.jpg);
-      }
-      .hover-animation::before {
-        content: "";
+      .cart-count {
         position: absolute;
-        bottom: -7px;
-        left: 0;
-        width: 0%;
-        height: 2px;
-        background-color: black;
-        transition: 0.3s;
-      }
-      .hover-animation:hover::before {
-        width: 100%;
+        top: -25px;
+        right: 0px;
+        color: black;
+        padding: 2px 6px;
+        font-size: 1.5rem;
+        min-width: 20px;
+        text-align: center;
       }
     </style>
   </head>
   <body class="text-white">
-    <!-- Home-Section -->
-    <section class="bg-zinc-800 h-screen bg-center bg-cover bg-no-repeat">
+    <!-- Navigation -->
+    <header>
+      <!-- Navbar -->
       <nav
-        class="flex items-center justify-between h-[100px] fixed top-0 w-full z-10 bg-softWhite shadow-md shadow-gray-900 text-black"
+        class="fixed top-0 w-full h-[100px] flex items-center justify-between bg-softWhite shadow-md shadow-gray-900 text-black px-4 z-10"
       >
-        <!-- left-section -->
-        <div class="flex space-x-[20px] ml-[50px] max-xl:min-w-[400px] max-md:min-w-[36px]">
-          <a href="#" class="hover:scale-125 hover:cursor-pointer transition-transform duration-300">
-            <i class="ri-cup-fill text-5xl max-xl:text-4xl "></i>
-          </a>
-          <p class="text-3xl max-sm:hidden max-xl:text-2xl">
-            CoffeeNCode by Nxa
-          </p>
-          <!-- middle-section -->
-        </div class="flex flex-1 items-center justify-center relative">
-        <i class="ri-menu-fill hidden text-3xl max-xl:flex hover:scale-125 hover:cursor-pointer transition-transform duration-300"></i>
-        <ul
-          class="flex justify-center items-center space-x-[70px] text-2xl mr-[175px] max-xl:hidden max-xl:text-xl"
+        <!-- Left Section - Logo & Brand -->
+        <div
+          class="flex items-center space-x-2 sm:space-x-[20px] ml-2 sm:ml-[10px]"
         >
-          <li class="relative">
-            <a href="#" class="hover-animation hover:cursor-pointer">Home</a>
-          </li>
-          <li class="relative">
-            <a href="#about" class="hover-animation hover:cursor-pointer"
-              >About Us</a
+          <a href="#" class="hover:scale-125 transition-transform duration-300">
+            <i class="ri-cup-fill text-3xl"></i>
+          </a>
+          <p class="text-lg hidden sm:block">CoffeeNCode by Nxa</p>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="js-menuToggle block md:hidden text-3xl hover:scale-125 transition-transform duration-300 absolute left-[75px] sm:relative sm:left-0"
+        >
+          <i class="ri-menu-fill"></i>
+        </button>
+
+        <!-- Navigation Links -->
+        <ul
+          class="js-navMenu hidden md:flex md:flex-row absolute md:relative top-[100px] md:top-0 left-0 w-full md:w-auto flex-col items-center bg-white/95 md:bg-transparent py-4 md:py-0 space-y-4 md:space-y-0 md:space-x-8 md:ml-12 shadow-lg md:shadow-none backdrop-blur-sm md:backdrop-blur-none transition-all duration-300 ease-in-out z-50 text-base md:text-lg"
+        >
+          <li class="w-full md:w-auto">
+            <a
+              href="#"
+              class="block px-4 py-2 hover:bg-gray-100 hover:text-green-600 md:hover:bg-transparent md:hover:text-primary"
             >
+              Home
+            </a>
           </li>
-          <li class="relative">
-            <a href="#menu" class="hover-animation hover:cursor-pointer"
-              >Menu</a
+          <li class="w-full md:w-auto">
+            <a
+              href="#about"
+              class="block px-4 py-2 hover:bg-gray-100 hover:text-green-600 md:hover:bg-transparent md:hover:text-primary"
             >
+              Us
+            </a>
           </li>
-          <li class="relative">
-            <a href="#contact-us" class="hover-animation hover:cursor-pointer"
-              >Contacts</a
+          <li class="w-full md:w-auto">
+            <a
+              href="#menu"
+              class="block px-4 py-2 hover:bg-gray-100 hover:text-green-600 md:hover:bg-transparent md:hover:text-primary"
             >
+              Menu
+            </a>
+          </li>
+          <li class="w-full md:w-auto">
+            <a
+              href="#contact-us"
+              class="block px-4 py-2 hover:bg-gray-100 hover:text-green-600 md:hover:bg-transparent md:hover:text-primary"
+            >
+              Contacts
+            </a>
           </li>
         </ul>
-        <!-- right-section -->
-        <div class="flex justify-center items-center mr-[50px] relative max-w-[220px] max-md:min-w-[20px]">
-          <a href="./checkout.html" class="absolute">
+
+        <!-- Right Section - Cart -->
+        <div class="flex items-center space-x-2 relative mr-2">
+          <a href="./checkout.html" class="relative flex items-center">
             <i
-            class="ri-shopping-cart-line text-4xl max-xl:text-3xl absolute right-[40px] hover:scale-125 hover:cursor-pointer transition-transform duration-300"
-          ></i>
-          <span class="js-cart text-3xl max-xl:text-2xl text-black font-bold">0</span>
+              class="ri-shopping-cart-line text-3xl hover:scale-125 transition-transform duration-300"
+            ></i>
+            <span
+              class="js-cart text-lg sm:text-xl text-black font-bold ml-2 cart-count"
+              >0</span
+            >
           </a>
         </div>
       </nav>
-      <!-- End of navigation -->
+    </header>
 
+    <!-- Home Section -->
+    <section
+      class="relative h-screen w-full bg-zinc-800 flex items-center justify-center pt-[100px]"
+    >
       <div
-        class="flex justify-between items-center h-full mx-[200px] absolute top-0"
+        class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between max-w-6xl"
       >
         <div
-          class="flex flex-col max-w-[670px] space-y-[65px] max-md:justify-start"
+          class="text-center md:text-left mb-8 md:mb-0 md:w-1/2"
           data-aos="zoom-in"
           data-aos-duration="1500"
         >
           <h1
-            class="text-white text-[75px] leading-[5rem] font-semibold"
+            class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[75px] leading-tight font-semibold mb-6"
           >
             <span class="text-extendOrange">WELCOME</span> to <br />
             <span class="text-extendBlue">CoffeeNCode!</span>
           </h1>
-            <p class="text-white text-xl leading-[40px] max-md:text-center max-md:text-md">
-              "At <span class="text-green-600">CodeNCoffee</span>, we brew
-              creativity and innovation, combining code and caffeine to fuel your
-              next big idea. <span class="max-md:hidden">
-                It's where problem-solving meets productivity, and
-                where passion for technology and love for coffee come together to
-                inspire and drive success.
-              </span>"
-            </p>
+          <p class="text-white text-base sm:text-lg md:text-xl leading-relaxed">
+            "At <span class="text-green-600">CodeNCoffee</span>, we brew
+            creativity and innovation, combining code and caffeine to fuel your
+            next big idea.
+            <span class="hidden md:inline">
+              It's where problem-solving meets productivity, and where passion
+              for technology and love for coffee come together to inspire and
+              drive success. </span
+            >"
+          </p>
         </div>
+
         <div
+          class="w-full md:w-1/2 lg:w-2/5 flex justify-center px-4"
           data-aos="zoom-in"
           data-aos-duration="1500"
-          class="ml-[200px] max-w-[437px]"
         >
           <img
             src="./images/home-coffee.png"
             alt="main-img"
-            class="w-[400px] animated-img"
+            class="w-full max-w-[270px] md:max-w-[320px] lg:max-w-[350px] h-auto object-contain mx-auto"
           />
         </div>
       </div>
     </section>
-    <!-- End Home-Section -->
+    <!-- End of Home-Section -->
 
     <!-- About Section -->
     <section
-      class="h-screen bg-slate-100 flex justify-center items-center text-white scroll-m-[100px] relative"
+      class="min-h-screen bg-slate-100 flex justify-center items-center text-white py-16 px-4 scroll-m-[96px]"
       id="about"
     >
       <div
-        class="flex justify-center items-center w-[1500px] h-auto space-x-[100px] rounded-xl absolute "
+        class="container mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12 bg-white rounded-xl p-6 md:p-12 shadow-lg max-w-6xl"
       >
-        <img
+        <div
+          class="w-full md:w-1/2 flex justify-center"
           data-aos="fade-right"
           data-aos-duration="1500"
-          src="./images/coffee-about.png"
-          alt="about-shop"
-          class="w-[600px]"
-        />
+        >
+          <img
+            src="./images/coffee-about.png"
+            alt="about-shop"
+            class="w-full max-w-[600px] h-auto object-contain"
+          />
+        </div>
         <div
-          class="flex flex-col space-y-[50px] pr-[50px]"
+          class="w-full md:w-1/2 flex flex-col space-y-6 md:space-y-8"
           data-aos="fade-left"
           data-aos-duration="1500"
         >
-          <h2 class="text-5xl font-bold text-green-600">About Us</h2>
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-green-600 text-center md:text-left"
+          >
+            About Us
+          </h2>
           <p
-            class="text-2xl text-justify font-semibold leading-[35px] text-black"
+            class="text-base md:text-lg lg:text-2xl text-black text-center md:text-left leading-relaxed"
           >
             At <span class="text-darkGreen font-bold">"CoffeeNCode"</span>,
             we're a hub for innovators and tech enthusiasts. Whether you're a
@@ -206,108 +216,128 @@
 
     <!-- Menu Section -->
     <section
-      class="h-auto bg-zinc-800 bg-center bg-cover bg-no-repeat scroll-m-[98px]"
+      class="min-h-screen bg-zinc-800 bg-center py-16 px-4 scroll-m-[64px]"
       id="menu"
     >
-      <div class="flex justify-center items-center">
-        <h2 class="text-5xl font-bold uppercase mt-[37px] ">
-          Our Popular Menu
-        </h2>
-      </div>
-      <!-- Coffee-Menu -->
-      <div
-        class="JS-coffee-List-Container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mx-4 mt-[50px] bg-whiteTranparent rounded-2xl border-white border-1px border-solid"
-      ></div>
+      <div class="container mx-auto p-4">
+        <!-- Section Title -->
+        <div class="flex justify-center items-center mb-8">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase text-white text-center"
+          >
+            Our Popular Menu
+          </h2>
+        </div>
 
-      <!-- Contact-Us -->
-      <div class="flex justify-center items-center mt-[57px]" id="contact-us">
-        <h2 class="text-5xl uppercase font-bold">
-          <span class="text-green-600">Contact</span> Us
-        </h2>
-      </div>
+        <!-- Coffee Menu Grid -->
+        <div
+          class="JS-coffee-List-Container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 px-4"
+        >
+          <!-- Coffee items will be dynamically inserted here -->
+        </div>
 
-      <div
-      class="grid items-baseline mx-[37px] mt-[30px] mb-[50px] max-[781px]:grid-cols-1 space-y-[50px] sm:grid-cols-2 lg:grid-cols-4"
-    >
-      <div
-        class="w-[400px] flex flex-col space-y-[20px]"
-      >
-        <p class="text-3xl font-semibold">
-          <span class="text-green-600">Coffee</span>NCode
-        </p>
-        <p class="text-base">
-          "Thank you for supporting
-          <span class="text-green-600">CoffeeNCode</span> <br> where passion for
-          programming meets the <br> perfect brew!"
-        </p>
-        <div class="flex space-x-[17px] text-4xl">
-          <i class="ri-facebook-fill hover-socialMedia"></i>
-          <i class="ri-instagram-fill hover-socialMedia"></i>
-          <i class="ri-tiktok-fill hover-socialMedia"></i>
-          <i class="ri-youtube-fill hover-socialMedia"></i>
+        <!-- Contact-Us -->
+        <div
+          class="flex justify-center items-center mt-16 mb-12"
+          id="contact-us"
+        >
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl uppercase font-bold text-white text-center"
+          >
+            <span class="text-green-600">Contact</span> Us
+          </h2>
+        </div>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 container mx-auto"
+        >
+          <div class="flex flex-col space-y-6 text-left">
+            <p class="text-2xl sm:text-3xl font-semibold">CoffeeNCode</p>
+            <p class="text-sm sm:text-base text-white/80">
+              "Thank you for supporting
+              <span class="text-green-600">CoffeeNCode</span> where passion for
+              programming meets the perfect brew!"
+            </p>
+            <div class="flex space-x-4 text-2xl sm:text-3xl">
+              <i class="ri-facebook-fill hover-socialMedia"></i>
+              <i class="ri-instagram-fill hover-socialMedia"></i>
+              <i class="ri-tiktok-fill hover-socialMedia"></i>
+              <i class="ri-youtube-fill hover-socialMedia"></i>
+            </div>
+          </div>
+
+          <div class="flex flex-col space-y-4">
+            <p class="text-2xl sm:text-3xl font-semibold text-left">Support</p>
+            <ul class="flex flex-col space-y-2">
+              <a href="#" class="text-base hover:text-green-600">Product</a>
+              <a href="#" class="text-base hover:text-green-600"
+                >Help and Support</a
+              >
+              <a href="#" class="text-base hover:text-green-600"
+                >Return Policy</a
+              >
+              <a href="#" class="text-base hover:text-green-600"
+                >Terms of Use</a
+              >
+            </ul>
+          </div>
+
+          <div class="flex flex-col space-y-4">
+            <p class="text-2xl sm:text-3xl font-semibold text-left">
+              <span class="text-green-600">View</span> Guides
+            </p>
+            <ul class="flex flex-col space-y-2">
+              <a href="#" class="text-base hover:text-green-600">Features</a>
+              <a href="#" class="text-base hover:text-green-600">Careers</a>
+              <a href="#" class="text-base hover:text-green-600">Blog Posts</a>
+              <a href="#" class="text-base hover:text-green-600"
+                >Our Branches</a
+              >
+            </ul>
+          </div>
+
+          <div class="flex flex-col space-y-4">
+            <p class="text-2xl sm:text-3xl font-semibold text-left">
+              <span class="text-green-600">Personal</span> Information
+            </p>
+            <div class="flex flex-col space-y-3">
+              <div class="flex items-center space-x-2">
+                <i class="ri-map-pin-2-fill text-xl"></i>
+                <span class="text-sm sm:text-base">
+                  St 288, Sangkat Boeng Keng Kang Ti 2, Khan Kang, Phnom Penh,
+                  Cambodia
+                </span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class="ri-phone-line text-xl"></i>
+                <span class="text-base">(+855) 97 331 0265</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class="ri-mail-fill text-xl"></i>
+                <span class="text-base">chun.sokna.1997@gmail.com</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div
-        class="flex flex-col space-y-[17px]"
-      >
-        <p class="text-3xl font-semibold">Support</p>
-        <ul class="flex flex-col space-y-[12px]">
-          <a href="#" class="text-lg hover:text-green-600">Product</a>
-          <a href="#" class="text-lg hover:text-green-600">Help and Support</a>
-          <a href="#" class="text-lg hover:text-green-600">Return Policy</a>
-          <a href="#" class="text-lg hover:text-green-600">Terms of Use</a>
-        </ul>
-      </div>
-
-      <div
-        class="flex flex-col space-y-[17px]"
-      >
-        <p class="text-4xl font-semibold">
-          <span class="text-green-600">View</span> Guides
-        </p>
-        <ul class="flex flex-col space-y-[12px]">
-          <a href="#" class="text-lg hover:text-green-600">Features</a>
-          <a href="#" class="text-lg hover:text-green-600">Careers</a>
-          <a href="#" class="text-lg hover:text-green-600">Blog Posts</a>
-          <a href="#" class="text-lg hover:text-green-600">Our Branches</a>
-        </ul>
-      </div>
-
-      <div
-        class="flex flex-col space-y-[17px]"
-      >
-        <p class="text-4xl font-semibold">
-          <span class="text-green-600">Personal</span> information
-        </p>
-        <div class="flex space-x-[10px]">
-          <i class="ri-map-pin-2-fill text-2xl"></i>
-          <span class="text-lg">St 288, Sangkat Boeng Keng Kang Ti 2, Khan Kang, Phnom Penh, Cambodia</span>
-        </div>
-        <div class="flex space-x-[10px]">
-          <i class="ri-phone-line text-2xl"></i>
-          <span class="text-lg">(+855) 97 331 0265</span>
-        </div>
-        <div class="flex space-x-[10px]">
-          <i class="ri-mail-fill text-2xl"></i>
-          <span class="text-lg">chun.sokna.1997@gmail.com</span>
-        </div>
-      </div>
-    </div>
+    </section>
 
     <footer
-      class="bg-lightGray w-screen h-[100px] shadow-md shadow-white flex justify-center items-center border-t-2 border-white"
+      class="bg-lightGray w-full shadow-md shadow-white flex flex-col sm:flex-row justify-center items-center border-t-2 border-white p-4"
     >
-      <p class="text-lg">
-        © 2024 CoffeeNCode, Brewing software skills one cup at a time. All right
-        reserved by
-        <span class="text-green-600">"Nxa"</span>.
+      <!-- Footer Text -->
+      <p class="text-center text-sm md:text-base">
+        © 2024 CoffeeNCode, Brewing software skills one cup at a time. All
+        rights reserved by
+        <span class="text-green-600 font-semibold">Nxa</span>.
       </p>
     </footer>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
-    </script>    
+    </script>
+    <script src="./data/nav.js"></script>
     <script type="module" src="./script.js"></script>
   </body>
 </html>
