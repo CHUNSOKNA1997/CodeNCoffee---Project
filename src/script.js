@@ -1,4 +1,4 @@
-import { cart, addToCart } from './data/cart.js';
+import { cart, addToCart } from './scripts/cart.js';
 import { coffeeList } from './data/products.js';
 let coffeeListHTML = '';
 coffeeList.forEach((items) => {
