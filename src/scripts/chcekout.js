@@ -1,4 +1,4 @@
-import { cart } from './cart.js';
+import { cart, removeFromCart } from './cart.js';
 import { coffeeList } from '../data/products.js';
 let coffeSum = '';
 let coffeeCartHTML = document.querySelector('.js-coffeeSum');
@@ -26,11 +26,11 @@ cart.forEach((item) => {
           <div class="flex flex-col justify-between ml-4 flex-grow">
             <span class="font-bold text-sm">${matchingName.name}</span>
             <span class="text-red-500 text-xs">CoffeeNCode</span>
-            <a
-              href="#"
-              class="font-semibold hover:text-red-500 text-gray-500 text-xs"
-              >Remove</a
-            >
+            <a 
+              data-coffee-name="${matchingName.name}"
+              class="js-remove-button hover:cursor-pointer font-semibold hover:text-red-500 text-gray-500 text-xs"
+              >Remove
+            </a>
           </div>
         </div>
         <div class="flex justify-center w-full md:w-1/5 mt-4 md:mt-0">
@@ -49,4 +49,12 @@ cart.forEach((item) => {
       </div>
     `;
   coffeeCartHTML.innerHTML = coffeSum;
+});
+
+document.querySelectorAll('.js-remove-button').forEach((button) => {
+  button.addEventListener('click', () => {
+    const coffeeName = button.dataset.coffeeName;
+    removeFromCart(coffeeName);
+    console.log(cart);
+  });
 });

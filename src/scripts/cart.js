@@ -1,4 +1,4 @@
-export const cart = [
+export let cart = [
   {
     coffeeName: 'Black Coffee',
     quantity: 1,
@@ -24,4 +24,14 @@ export function addToCart(coffeeName) {
       quantity: 1,
     });
   }
+}
+
+export function removeFromCart(coffeeName) {
+  let newCart = [];
+  cart.forEach((item) => {
+    if (item.coffeeName !== coffeeName) {
+      newCart.push(item);
+    }
+  });
+  cart = newCart;
 }

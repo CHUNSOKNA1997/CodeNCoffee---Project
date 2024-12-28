@@ -835,6 +835,12 @@ video {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1031,6 +1037,10 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.pt-8 {
+  padding-top: 2rem;
+}
+
 .pt-\[100px\] {
   padding-top: 100px;
 }
@@ -1187,6 +1197,14 @@ video {
   outline-width: 1px;
 }
 
+.outline-\[1px\] {
+  outline-width: 1px;
+}
+
+.outline-black {
+  outline-color: #000;
+}
+
 .outline-white {
   outline-color: #fff;
 }
@@ -1304,6 +1322,10 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
+}
+
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
@@ -1335,6 +1357,10 @@ video {
 
 .hover\:outline:hover {
   outline-style: solid;
+}
+
+.hover\:outline-offset-1:hover {
+  outline-offset: 1px;
 }
 
 .hover\:outline-white:hover {
@@ -1398,12 +1424,6 @@ video {
 
   .sm\:flex-row {
     flex-direction: row;
-  }
-
-  .sm\:space-x-\[20px\] > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(20px * var(--tw-space-x-reverse));
-    margin-left: calc(20px * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .sm\:px-6 {
