@@ -13,7 +13,9 @@ cart.forEach((item) => {
   });
   coffeSum += `
     <div
-        class="flex flex-col md:flex-row items-center hover:bg-gray-100 px-4 py-5 border rounded-lg"
+        class="js-coffee-container-${matchingName.name
+          .replace(/\s+/g, '-')
+          .toLowerCase()} flex flex-col md:flex-row items-center hover:bg-gray-100 px-4 py-5 border rounded-lg"
       >
         <div class="flex w-full md:w-2/5">
           <div class="w-16 md:w-20">
@@ -55,6 +57,11 @@ document.querySelectorAll('.js-remove-button').forEach((button) => {
   button.addEventListener('click', () => {
     const coffeeName = button.dataset.coffeeName;
     removeFromCart(coffeeName);
-    console.log(cart);
+
+    const container = document.querySelector(
+      `.js-coffee-container-${coffeeName.replace(/\s+/g, '-').toLowerCase()}`
+    );
+
+    container.remove();
   });
 });
