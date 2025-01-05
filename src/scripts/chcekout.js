@@ -32,10 +32,10 @@ cart.forEach((item) => {
               <p class="font-semibold text-price">$2.99</p>
               <div class="flex flex-wrap gap-3 text-sm">
                 <span>Quantity: 1</span>
-                <a href="#" class="text-upnD hover:text-hoverUpnD"
+                <a class="text-upnD hover:cursor-pointer hover:text-hoverUpnD"
                   >Update</a
                 >
-                <a href="#" class="js-remove-button text-upnD hover:text-hoverUpnD" data-coffee-name="${coffeeName}"
+                <a class="js-remove-button hover:cursor-pointer text-upnD hover:text-hoverUpnD" data-coffee-name="${coffeeName}"
                   >Delete</a
                 >
               </div>
@@ -120,5 +120,23 @@ document.querySelectorAll('.js-remove-button').forEach((button) => {
     );
 
     container.remove();
+    updateCartQty();
   });
 });
+
+let cartQty = 0;
+
+cart.forEach((item) => {
+  cartQty += item.quantity;
+});
+
+document.querySelector('.js-return-home').innerHTML = `${cartQty} items`;
+
+function updateCartQty() {
+  let cartQty = 0;
+  cart.forEach((item) => {
+    cartQty += item.quantity;
+  });
+
+  document.querySelector('.js-return-home').innerHTML = `${cartQty} items`;
+}

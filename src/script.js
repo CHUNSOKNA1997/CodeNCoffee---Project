@@ -1,4 +1,4 @@
-import { cart, addToCart, saveToLocalStorage } from './scripts/cart.js';
+import { cart, addToCart } from './scripts/cart.js';
 import { coffeeList } from './data/products.js';
 let coffeeListHTML = '';
 coffeeList.forEach((items) => {
@@ -57,14 +57,13 @@ function calcCartQty() {
     cartQty += items.quantity;
   });
 
-  document.querySelector('.js-cart').innerHTML = cartQty;
+  document.querySelector('.js-cart').innerHTML = `${cartQty}`;
 }
 
 document.querySelectorAll('.js-add-button').forEach((button) => {
   button.addEventListener('click', () => {
     const coffeeName = button.dataset.coffeeName;
     addToCart(coffeeName);
-    saveToLocalStorage();
     calcCartQty();
   });
 });
