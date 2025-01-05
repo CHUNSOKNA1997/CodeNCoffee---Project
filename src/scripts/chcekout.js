@@ -12,7 +12,7 @@ cart.forEach((item) => {
     }
   });
   coffeeSum += `
-    <div class="border border-gray-300 rounded-lg p-4 md:p-6 .js-coffee-container-${coffeeName
+    <div class="border border-gray-300 rounded-lg p-4 md:p-6 js-coffee-container-${coffeeName
       .replace(/\s+/g, '-')
       .toLowerCase()}">
         <p class="text-lg md:text-xl font-semibold text-deliverOp">
@@ -35,8 +35,8 @@ cart.forEach((item) => {
                 <a href="#" class="text-upnD hover:text-hoverUpnD"
                   >Update</a
                 >
-                <button class="js-remove-button text-upnD hover:text-hoverUpnD"
-                  >Delete</button
+                <a href="#" class="js-remove-button text-upnD hover:text-hoverUpnD" data-coffee-name="${coffeeName}"
+                  >Delete</a
                 >
               </div>
             </div>
@@ -55,7 +55,7 @@ cart.forEach((item) => {
                 <input
                   type="radio"
                   name="delivery"
-                  class="mt-1 transform scale-125"
+                  class="mt-1 transform scale-125" checked
                 />
                 <div>
                   <p
@@ -111,7 +111,7 @@ cart.forEach((item) => {
 });
 
 document.querySelectorAll('.js-remove-button').forEach((button) => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', (event) => {
     const coffeeName = button.dataset.coffeeName;
     removeFromCart(coffeeName);
 
